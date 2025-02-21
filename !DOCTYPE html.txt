@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rank Display</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+        }
+        #rankImage {
+            max-width: 80%;
+            height: auto;
+        }
+        #rankText {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="rankText">Loading...</div>
+    <img id="rankImage" src="" alt="Rank Image">
+    
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const rank = params.get("rank"); // Get rank from the URL parameter
+
+        let rankText = "";
+        let rankImage = "";
+
+        switch(rank) {
+            case "1": 
+                rankText = "Bronze";
+                rankImage = "https://static.wikia.nocookie.net/fortnite/images/7/74/Bronze_III_-_Icon_-_Fortnite.png/revision/latest/scale-to-width-down/250?cb=20230531201222"; // Replace with actual URL
+                break;
+            case "2":
+                rankText = "Gold";
+                rankImage = "https://static.wikia.nocookie.net/fortnite/images/c/cf/Gold_III_-_Icon_-_Fortnite.png/revision/latest/scale-to-width-down/250?cb=20230531201231"; // Replace with actual URL
+                break;
+            case "3":
+                rankText = "Diamond";
+                rankImage = "https://static.wikia.nocookie.net/fortnite/images/e/e1/Diamond_III_-_Icon_-_Fortnite.png/revision/latest/scale-to-width-down/250?cb=20230531201227"; // Replace with actual URL
+                break;
+            case "4":
+                rankText = "Elite";
+                rankImage = "https://static.wikia.nocookie.net/fortnite/images/2/2e/Elite_-_Icon_-_Fortnite.png/revision/latest/scale-to-width-down/250?cb=20230531201228"; // Replace with actual URL
+                break;
+            case "5":
+                rankText = "Platinum";
+                rankImage = "https://static.wikia.nocookie.net/fortnite/images/3/30/Platinum_III_-_Icon_-_Fortnite.png/revision/latest/scale-to-width-down/250?cb=20230531201234"; // Replace with actual URL
+                break;
+            default:
+                rankText = "Unreal";
+                rankImage = "https://makerworld.bblmw.com/makerworld/model/DSM00000000493988/design/2024-06-12_d15f8e7cea629.png"; // Replace with actual URL
+                break;
+        }
+
+        document.getElementById("rankText").innerText = "Your rank is " + rankText;
+        document.getElementById("rankImage").src = rankImage;
+    </script>
+</body>
+</html>
